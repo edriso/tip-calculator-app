@@ -1,0 +1,259 @@
+@import "variables";
+@import "mixins";
+
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  color: $dkGrayishCyan;
+  background-color: $ltGrayishCyan;
+  margin: 0;
+  padding: 2rem 0;
+  font-family: "Space Mono", monospace;
+}
+
+button {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+// flex
+.flex {
+  display: flex;
+
+  &-jc-c {
+    justify-content: center;
+  }
+
+  &-jc-sb {
+    justify-content: space-between;
+  }
+
+  &-ai-c {
+    align-items: center;
+  }
+}
+
+// margin
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mb-3 {
+  margin-bottom: 2rem;
+}
+
+// splitter
+.Splitter-logo {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  img {
+    width: 4.6875rem;
+  }
+}
+
+.splitter {
+  background-color: $white;
+  padding: 1rem;
+  border-radius: $radius-l;
+  margin: 0.5rem;
+  @include breakpoint-up(medium) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__info {
+    font-weight: bold;
+    @include breakpoint-up(medium) {
+      padding: 0 1rem;
+    }
+    @include breakpoint-down(small) {
+      margin-bottom: 2rem;
+    }
+
+    > label {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .input-group {
+      background-color: $ltGrayishCyan;
+      padding: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: $radius-s;
+
+      > label {
+        display: block;
+        width: 10%;
+        margin-left: -0.25rem;
+
+        img {
+          display: block;
+          width: 0.85rem;
+          margin: 0 auto;
+        }
+      }
+
+      input {
+        width: 90%;
+        text-align: right;
+      }
+    }
+
+    .form-input {
+      background-color: $veryLtGrayishCyan;
+      color: $veryDarkCyan;
+      border-radius: $radius-s;
+      padding: 0.75rem;
+      border: 0;
+      outline: 0;
+      font-weight: bold;
+      font-size: 1.25rem;
+      width: 100%;
+      border: 0.125rem solid transparent;
+      transition: border-color 0.2s ease-in-out;
+      font-family: "Space Mono", monospace;
+
+      &:focus {
+        border-color: $strongCyan;
+      }
+    }
+
+    #tips-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      text-align: center;
+      font-size: 1.15rem;
+
+      > div {
+        color: $veryLtGrayishCyan;
+        border-radius: $radius-s;
+        overflow: hidden;
+
+        label {
+          display: block;
+          padding: 0.75rem;
+          cursor: pointer;
+          background-color: $veryDarkCyan;
+          border: 0.125rem solid transparent;
+          transition: all 0.2s ease-in-out;
+
+          &:hover {
+            background-color: $strongCyan;
+            color: $veryDarkCyan;
+          }
+        }
+
+        &.selected {
+          label {
+            background-color: $strongCyan;
+            color: $veryLtGrayishCyan;
+          }
+        }
+      }
+
+      input[type="radio"] {
+        display: none;
+      }
+
+      input[type="number"] {
+        text-align: center;
+        height: 100%;
+      }
+    }
+
+    #error-container {
+      .error-msg {
+        display: none;
+      }
+
+      &.show-error {
+        .error-msg {
+          display: block;
+          color: $error;
+        }
+
+        input {
+          border-color: $error;
+        }
+      }
+    }
+  }
+
+  &__total {
+    background-color: $veryDarkCyan;
+    border-radius: $radius-l;
+    color: $grayishCyan;
+    padding: 1rem;
+    @include breakpoint-up(medium) {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      //   align-self: center;
+    }
+
+    div.flex:first-child {
+      margin-bottom: 3.5rem;
+      @include breakpoint-down(small) {
+        margin-bottom: 2rem;
+      }
+    }
+
+    h3 {
+      color: $veryLtGrayishCyan;
+    }
+
+    h2 {
+      color: $strongCyan;
+      font-size: 1.65rem;
+
+      span {
+        font-size: 1.9rem;
+      }
+    }
+
+    button {
+      background-color: $strongCyan;
+      color: $veryDarkCyan;
+      display: block;
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 4rem;
+      border-radius: $radius-s;
+      font-weight: 700;
+      transition: background-color 0.2s ease-in-out;
+
+      &:hover {
+        background-color: $veryLtGrayishCyan;
+      }
+
+      &.disabled {
+        opacity: 0.5;
+        cursor: default;
+
+        &:hover {
+          background-color: $strongCyan;
+        }
+      }
+    }
+  }
+}
