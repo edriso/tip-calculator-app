@@ -13,11 +13,12 @@ html {
 }
 
 body {
-  color: $dkGrayishCyan;
-  background-color: $ltGrayishCyan;
-  margin: 0;
-  padding: 2rem 0;
   font-family: "Space Mono", monospace;
+  background-color: $ltGrayishCyan;
+  color: $dkGrayishCyan;
+  padding: 2rem 0;
+  margin: 0 auto;
+  max-width: 50rem;
 }
 
 button {
