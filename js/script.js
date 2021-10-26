@@ -61,7 +61,7 @@ for (let i = 0; i < tipLabels.length; i++) {
 
 // custom tip input
 customTip.addEventListener("change", function (e) {
-  tipPercent = e.target.value;
+  tipPercent = e.target.value / 100;
   totalCalc();
   resetSelectedTip();
 });
